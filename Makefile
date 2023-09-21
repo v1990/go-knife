@@ -1,0 +1,9 @@
+lint:
+	go version
+	go generate ./...
+	go mod tidy
+	goimports -l -w .
+	gofmt -l -s -w .
+	gofumpt -l -w .
+	go vet ./...
+	golangci-lint run --fix ./...
